@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="vueapps">
+        <h3>Belajar {{title}}</h3>
+        <button-counter></button-counter><br>
+        <button-counter></button-counter>
+        <hr>
+        <blog-post title="title test 1" subject="subject title 1"></blog-post><br>
+        <blog-post title="title test 2" subject="subject title 2"></blog-post><br>
+    </div>
+</body>
+<script type="text/x-template" id="blogtemplate">
+    <h3>{{title}}</h3>
+    <p>{{subject}}</p>
+</script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                title: 'VueJs'
+            }
+        }
+    })
+    app.component('button-counter', {
+        data() {
+            return {
+                count: 0
+            }
+        },
+        template: `
+        <button @click="count++">
+            you clicked me {{count}} times.
+        </button>`
+    })
+    app.component('blog-post', {
+        props: ['title', 'subject'],
+        template: '#blogtemplate'
+    })
+    app.mount('#vueapps');
+</script>
+
+</html>
