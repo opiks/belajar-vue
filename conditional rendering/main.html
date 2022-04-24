@@ -44,13 +44,11 @@
         },
         methods: {
             showdata() {
-                if (this.status) {
+                if (this.status)
                     this.btntxt = "tampilkan data"
-                    this.status = false
-                } else {
+                else
                     this.btntxt = "sembunyikan data"
-                    this.status = true
-                }
+                this.status = !this.status
             }
         },
     }
