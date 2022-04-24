@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Hello World</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="vueworld">
+        <h3>Belajar {{title}}</h3>
+        <!-- :key="user.id" buat nyimpen id biar unique -->
+        <ul>
+            <li v-for="user in users" :key="user.nama">
+                {{user.nama}} - {{user.julukan}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const sample = {
+        data() {
+            return {
+                title: "vuejs",
+                users: [{
+                    nama: 'asep',
+                    julukan: 'dadang'
+                }, {
+                    nama: 'anwar',
+                    julukan: 'asep'
+                }],
+            }
+        },
+        methods: {
+
+        },
+    }
+    Vue.createApp(sample).mount('#vueworld');
+</script>
+
+</html>
