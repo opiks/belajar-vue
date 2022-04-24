@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar vue</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="vueapps">
+        <h3>Belajar {{title}}</h3>
+        <input type="text" v-model="nama"> <br>
+        <input type="number" v-model="umur">
+        <p>
+            Nama : {{nama}} <br> Umur : {{umur}} <br> Keterangan : {{keterangan}} <br>
+        </p>
+    </div>
+</body>
+<script>
+    const sample = {
+        data() {
+            return {
+                title: "Vue JS",
+                nama: "Vue JS",
+                umur: 10,
+            }
+        },
+        computed: {
+            keterangan() {
+                if (this.umur > 50)
+                    return 'tua banget'
+                else if (this.umur <= 10)
+                    return 'masih anak - anak'
+                else
+                    return 'umur anda masih produktif'
+            }
+        }
+    }
+    Vue.createApp(sample).mount('#vueapps');
+</script>
+
+</html>
